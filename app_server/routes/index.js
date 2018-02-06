@@ -47,4 +47,4 @@ router.get('/menu', ctrlMain.get_menu);
  */
 router.post('/menu', ctrlMain.post_menu);
 
-module.exports = rout
+module.exports = router;
