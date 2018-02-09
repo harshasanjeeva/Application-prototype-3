@@ -99,6 +99,11 @@ module.exports.home = function(request, result)
     sendPage('index.html', result);
 };
 
+module.exports.login = function(request, result) 
+{
+    sendPage('javascript_login.html', result);
+};
+
 /*
  * GET text fields page.
  */
