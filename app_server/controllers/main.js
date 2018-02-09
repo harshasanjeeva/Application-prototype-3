@@ -91,6 +91,12 @@ function modify(text, request)
     return text;
 }
 
+// funtion validate(){
+
+// }
+
+
+
 /*
  * GET home page.
  */
@@ -104,6 +110,36 @@ module.exports.login = function(request, result)
     sendPage('javascript_login.html', result);
 };
 
+
+module.exports.post_login = function(request, result) 
+{
+    console.log("request--->",request)
+    console.log("request--->",request.body.username)
+    
+    var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+
+var username = request.body.username;
+var password = request.body.password;
+if ( username == "Formget" && password == "formget#123"){
+
+sendPage('index.html', result);
+}
+else{
+// Disabling fields after 3 attempts.
+sendPage('javascript_login.html', result);
+}
+
+    
+    
+    
+    
+    
+    
+    //var text = '    Hello, ' + getName(request);
+    //sendBody(home, result);
+    //sendPage('index.html', result);
+};
 /*
  * GET text fields page.
  */

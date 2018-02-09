@@ -5,12 +5,18 @@ var ctrlMain = require("../controllers/main");
 /*
  * GET home page.
  */
-router.get('/', ctrlMain.home);
+router.get('/home', ctrlMain.home);
 
+
+
+router.get('/', ctrlMain.login);
+
+router.post('/login', ctrlMain.post_login);
 /*
  * GET text fields page.
- */
+*/
 router.get('/textfields', ctrlMain.get_textfields);
+
 
 /*
  * POST text fields page.
