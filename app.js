@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/',index);
 
 module.exports = app;
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
    console.log("The server has started!");
 });;
