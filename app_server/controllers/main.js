@@ -1,5 +1,5 @@
 var lineReader = require('line-reader');
-
+//var popup = require('popups');
 /**
  * Send the contents of an HTML page to the client.
  * @param fileName the name of the file containing the HTML page.
@@ -122,11 +122,16 @@ module.exports.post_login = function(request, result)
 var username = request.body.username;
 var password = request.body.password;
 if ( username == "Formget" && password == "formget#123"){
-
+    // popup.window({
+    //     content: 'Login successful!'
+    // });
 sendPage('index.html', result);
 }
 else{
 // Disabling fields after 3 attempts.
+// popup.window({
+//     content: 'Invalid credentials! Try again'
+// });
 sendPage('javascript_login.html', result);
 }
 
