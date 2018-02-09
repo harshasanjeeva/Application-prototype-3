@@ -5,193 +5,40 @@
     <meta charset="UTF-8">
     <title>Forms Examples</title>
 
-
+    <link rel="stylesheet" href="index.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  
-      <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      *{
-  box-sizing: border-box;
-}
-
-body {
-  position: absolute;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  padding-top: 80px;
-  height: 1900px;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-@supports (position: sticky) {
-  body {
-    padding-top: 0;
-  }
-
-  header {
-    position: sticky;
-  }
-
-}
-
-.navbar {
-  position: relative;
-  height: 80px;
-  width: 100%;
-  transition: 0.5s ease;
-}
-
-.navbar .nav {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  float: right;
-  margin-right: 5%;
-}
-
-.navbar .nav .item {
-  list-style: none;
-  display: inline-block;
-  font-size: 18px;
-  padding: 5px;
-  font-weight: 300;
-  line-height: 80px;
-  margin-right: 20px;
-  transition: 0.5s ease;
-}
-
-.navbar .nav .item .contact {
-  display: inline-block;
-  background-color: #ffffff;
-  height: 40px;
-  line-height: 30px;
-  padding: 5px;
-  border-radius: 2px;
-  transition: 0.5s ease;
-}
-
-.navbar .nav .item a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.navbar .logo {
-  float: left;
-  display: inline-block;
-  margin-top: 5px;
-  margin-left: 5%;
-  width: 70px;
-  height: 70px;
-  background-color: firebrick;
-  transition: 0.5s ease;
-}
-
-.navbar .logo img {
-  display: none;
-}
-
-.scrolled {
- transition: 0.5s ease;
-}
-
-.scrolled.navbar {
-  height: 50px; 
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: 0.5s ease;
-
-}
-
-
-.scrolled.navbar .nav .item {
-  line-height: 40px;
-  transition: 0.5s ease;
-}
-
-.scrolled.navbar .nav .item .contact {
-  display: inline-block;
-  background-color: #ffffff;
-  height: 40px;
-  line-height: 30px;
-  padding: 5px;
-  border-radius: 2px;
-  transition: 0.5s ease;
-}
-
-.scrolled.navbar .logo {
-  float: left;
-  display: inline-block;
-  margin-top: 5px;
-  margin-left: 5%;
-  width: 40px;
-  height: 40px;
-  background-color: firebrick;
-  transition: 0.5s ease;
-}
-    </style>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
-
     
 </head>
-<!-- 
-<body>
-    <h1>Form Examples</h1>
-    <ul>
-        <li><a href="textfields">text fields</a></li>
-        <li><a href="checkboxes">check boxes</a></li>
-        <li><a href="radiobuttons">radio buttons</a></li>
-        <li><a href="menu">menu</a></li>
-    </ul>
-</body> -->
 
 <body>
-    <header>
-        <div class="navbar">
-          <ul class="nav">
-            <li class="item">
-              <a href="#">Home</a>
-            </li>
-  
-            <li class="item">
-              <a href="textfields">textfields</a>
-            </li>
-  
-            <li class="item">
-              <a href="checkboxes">checkboxes</a>
-            </li>
-  
-            <li class="item">
-              <a href="menu" class="contact">menu</a>
-            </li>
-          </ul>
-  
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YelpCamp</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="textfields">Textfield</a></li>
+                    <li><a href="checkboxes">Checkbox</a></li>
+                    <li><a href="menu">Menu</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body> 
+<!-- 
+<body>
+    
           <div class="logo">
             <img src="#">
           </div>
         </div>
-      </header>
+      
       <div id="map"></div>
       <script>
         // Note: This example requires that you consent to location sharing when
@@ -236,11 +83,7 @@ header {
         }
       </script>
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4zq739AYCMcF3U00DK2yrU2yRC1hqG8&callback=initMap">
       </script>
-
-
-
-
-</body>
+</body> -->
 </html>

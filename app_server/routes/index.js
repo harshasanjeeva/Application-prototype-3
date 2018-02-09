@@ -47,4 +47,8 @@ router.get('/menu', ctrlMain.get_menu);
  */
 router.post('/menu', ctrlMain.post_menu);
 
+/*
+ * GET login page.
+ */
+router.get('/login', ctrlMain.get_login);
 module.exports = router;

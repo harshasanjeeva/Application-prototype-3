@@ -212,3 +212,11 @@ module.exports.post_menu = function(request, result)
     text = modify(text, request);
     sendBody(text, result);
 };
+
+/*
+ * GET login page.
+ */
+module.exports.get_login= function(request, result) 
+{
+    sendPage('login.html', result);
+};
