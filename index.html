@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <title>Forms Examples</title>
 <style>
+  #table {
+   
+}
           #map {
            height: 100%;
+           width: 50%;
+           float:left
           }
           /* Optional: Makes the sample page fill the window. */
           html, body {
@@ -26,17 +31,17 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="home">YelpCamp</a>
+                <a class="navbar-brand" href="home">Yelp</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="textfields">Textfield</a></li>
-                    <li><a href="checkboxes">Checkbox</a></li>
-                    <li><a href="menu">Menu</a></li>
+                    <li><a href="textfields">Best Places</a></li>
+                    <!-- <li><a href="checkboxes">Explore More</a></li>
+                    <li><a href="menu">About Us</a></li> -->
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login">Login</a></li>
-                </ul>
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login">Logout</a></li>
+                </ul> -->
             </div>
         </div>
     </nav>
@@ -46,6 +51,37 @@
 
       
       <div id="map"></div>
+  
+      <div class="container">
+          <div class="row">
+            <div class="col-md-5 col-sm-12">
+              <table border="1" id="html5logo" class="table table-striped">
+                <caption style="caption-side:top;">Suggested places based on your cuurent location</caption>
+                <tbody>
+                  <tr>
+                    <th>Place</th>
+                    <th>Address</th>
+                    <th>Rating</th>
+                    <th>reviews</th>
+                  </tr>
+                  <tr>
+                    <td>Starbucks</td>
+                    <td>San Jose</td>
+                    <td>4.5 stars</td>
+                    <td>good</td>
+
+                  </tr>
+                  
+                  <tr>
+                      <td>Pizza</td>
+                      <td>San Jose</td>
+                      <td>4.0 stars</td>
+                      <td>very good</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>* suggested places are mockup data</p>
       <br style="clear:both;"/>
       <script>
         // Note: This example requires that you consent to location sharing when
@@ -67,17 +103,21 @@
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
               };
+              //if (status == google.maps.GeocoderStatus.OK) {
 
-              var marker = new google.maps.Marker({
+              //}
+              setTimeout(function() {
+              //your code to be executed after 1 second
+                var marker = new google.maps.Marker({
                  position: pos,
                  map: map,
                 title: 'Hello World!'
               });
+              }, 1000);
 
-
-              // infoWindow.setPosition(pos);
-              // infoWindow.setContent('Location found.');
-              // infoWindow.open(map);
+              //  infoWindow.setPosition(pos);
+              //  infoWindow.setContent('Location found.');
+              //  infoWindow.open(map);
               map.setCenter(pos);
             }, function() {
               handleLocationError(true, infoWindow, map.getCenter());
