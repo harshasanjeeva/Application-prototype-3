@@ -121,7 +121,7 @@ module.exports.post_login = function(request, result)
 
 var username = request.body.username;
 var password = request.body.password;
-if ( username == "ronmak" && password == "ronmak#123"){
+if ( username == "ronmak" && password == "Ronmak123"){
     // popup.window({
     //     content: 'Login successful!'
     // });

@@ -32,6 +32,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+
 .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -105,6 +106,37 @@ body {
   -moz-osx-font-smoothing: grayscale;      
 }
 </style>
+
+<script type = "text/javascript">
+function validate()
+{
+  username = document.getElementById("username").value;
+  password = document.getElementById("password").value;
+
+  alerts = "";
+
+  if(username == "" && password == ""){
+    alerts += "Username and Password fields are empty. Please fill in them.\n";
+  }
+  else if(username != "" && password == ""){
+    alerts += "Password field is empty. Plese enter Password.";
+  }
+  else if(username == "" && password != ""){
+     alerts += "Username field is empty. Plese enter Username.\n";
+  
+  
+  passwordRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})[a-zA-Z0-9]+$/;
+
+  if(!password.match(passwordRE)){
+  alerts += "Invalid Password. Please see the instructions.";
+  }
+  }
+  if(alerts !=""){
+  alert(alerts);
+  }
+}
+</script>
+
 </head>
 <body>
 <div class="login-page">
@@ -118,7 +150,7 @@ body {
 <input type="text" placeholder="username" name="username" id="username"/>
 <label>Password :</label>
 <input type="password" placeholder="password" name="password" id="password"/>
-<input type="submit" value="Login" id="submit" />
+<button type="submit" value="Login" onClick = "validate()"> Login </button>
 </form>
 
 
