@@ -91,15 +91,11 @@ function modify(text, request)
     return text;
 }
 
-// funtion validate(){
+module.exports.landing = function(request, result) 
+{
+    sendPage('landing.html', result);
+};
 
-// }
-
-
-
-/*
- * GET home page.
- */
 module.exports.home = function(request, result) 
 {
     sendPage('index.html', result);
@@ -107,72 +103,50 @@ module.exports.home = function(request, result)
 
 module.exports.login = function(request, result) 
 {
-    sendPage('javascript_login.html', result);
+    sendPage('login.html', result);
 };
-
 
 module.exports.post_login = function(request, result) 
 {
     console.log("request--->",request)
     console.log("request--->",request.body.username)
     
-    var attempt = 3; // Variable to count number of attempts.
-// Below function Executes on click of login button.
-
-var username = request.body.username;
-var password = request.body.password;
-if ( username == "ronmak" && password == "Ronmak123"){
-    // popup.window({
-    //     content: 'Login successful!'
-    // });
-sendPage('index.html', result);
-}
-else{
-// Disabling fields after 3 attempts.
-// popup.window({
-//     content: 'Invalid credentials! Try again'
-// });
-sendPage('javascript_login.html', result);
-}
-
-    
-    
-    
-    
-    
-    
-    //var text = '    Hello, ' + getName(request);
-    //sendBody(home, result);
-    //sendPage('index.html', result);
+    var username = request.body.username;
+    var password = request.body.password;
+    if (username == "ronmak" && password == "Ronmak123"){
+        sendPage('index.html', result);
+    }
+    else{
+        sendPage('login.html', result);
+    }
 };
-/*
- * GET text fields page.
- */
+
+module.exports.register = function(request, result) 
+{
+    sendPage('register.html', result);
+};
+
+module.exports.post_register = function(request, result) 
+{
+    sendPage('login.html', result);
+};
+
 module.exports.get_textfields = function(request, result) 
 {
     sendPage('text.html', result);
 };
 
-/*
- * POST text fields page.
- */
 module.exports.post_textfields = function(request, result) 
 {
     var text = '    Hello, ' + getName(request);
     sendBody(text, result);
 };
 
-/*
- * GET check boxes page.
- */
 module.exports.get_checkboxes = function(request, result) 
 {
     sendPage('checkbox.html', result);
 };
 
-/*
- * POST check boxes page.
- */
 module.exports.post_checkboxes = function(request, result) 
 {
     var text = '    Hello, ' + getName(request);    
@@ -180,17 +154,11 @@ module.exports.post_checkboxes = function(request, result)
     sendBody(text, result);
 };
 
-/*
- * GET radio buttons page.
- */
 module.exports.get_radiobuttons = function(request, result) 
 {
     sendPage('radio.html', result);
 };
 
-/*
- * POST radio buttons page.
- */
 module.exports.post_radiobuttons = function(request, result) 
 {
     var direction = request.body.direction;
@@ -201,17 +169,11 @@ module.exports.post_radiobuttons = function(request, result)
     sendBody(text, result);
 };
 
-/*
- * GET menu page.
- */
 module.exports.get_menu = function(request, result) 
 {
     sendPage('select.html', result);
 };
 
-/*
- * POST menu page.
- */
 module.exports.post_menu = function(request, result) 
 {
     var direction = request.body.direction;
@@ -259,9 +221,6 @@ module.exports.post_menu = function(request, result)
     sendBody(text, result);
 };
 
-/*
- * GET login page.
- */
 module.exports.get_login= function(request, result) 
 {
     sendPage('login.html', result);

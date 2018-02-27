@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="login.css" type="text/css" />
+        <script type="text/javascript">
+            function uname(){
+                document.getElementById("usernameLbl").style.visibility = "hidden";
+            }
+            function email(){
+                document.getElementById("emailLbl").style.visibility = "hidden";
+            }
+            function phone(){
+                document.getElementById("phoneLbl").style.visibility = "hidden";
+            }
+            function pwd(){
+                document.getElementById("passwordLbl").style.visibility = "hidden";
+            }
+            
+            function validate(){
+                var username = document.getElementById("username").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var password = document.getElementById("password").value;
+                var bool = true;
+                
+                var usernameRegex = /^([a-zA-Z0-9]+){8,12}$/;
+                var validUsername = username.match(usernameRegex);
+                if (validUsername == null){
+                    document.getElementById("usernameLbl").style.visibility = "visible";
+                    bool = false;
+                } else{
+                    document.getElementById("usernameLbl").style.visibility = "hidden";
+                }
+                
+                var emailRegex = /^.+@.+\..{2,4}$/;
+                var validemail = email.match(emailRegex);
+                if(validemail == null)
+                {
+                    document.getElementById("emailLbl").style.visibility = "visible";
+                    bool = false;
+                } else {
+                     document.getElementById("emailLbl").style.visibility = "hidden";
+                }
+                
+                var phoneRegex = /^\(\d{3}\) *\d{3}-\d{4}$/;
+                var validphone = phone.match(phoneRegex);
+                if(validphone == null)
+                {
+                    document.getElementById("phoneLbl").style.visibility = "visible";
+                    bool = false;
+                } else {
+                     document.getElementById("phoneLbl").style.visibility = "hidden";
+                }
+                
+                var passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+                var validpassword = password.match(passwordRegex);
+                if (validpassword == null){
+                    document.getElementById("passwordLbl").style.visibility = "visible";
+                    bool = false;
+                } else{
+                     document.getElementById("passwordLbl").style.visibility = "hidden";
+                }
+                return bool;
+            }
+        </script>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">Salahe</a>
+            </div>
+        </div>
+        </nav>
+        
+        <div class="row">
+            <h1 style="text-align: center">Login</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/register" method="post" onsubmit= "return validate()">
+                    <div class="form-group">
+                        <input class="form-control" id="username" type="text" name="username" placeholder="username" onfocus="uname()">
+                        <label for="username" id ="usernameLbl" style="visibility:hidden">
+                            Username is not valid. Only characters A-Z, a-z and '-' are  acceptable
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="email" type="text" name="email" placeholder="email" onfocus="email()">
+                        <label for="email" id ="emailLbl" style="visibility:hidden">
+                            Email is not valid. Email should be of the format xxxx@xxxx.xxx
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="phone" type="text" name="phone" placeholder="phone" onfocus="phone()">
+                        <label for="phone" id ="phoneLbl" style="visibility:hidden">
+                            Phone number is not valid. Should be of the format (999) 999-9999
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="password" type="password" name="password" placeholder="password" onfocus="pwd()">
+                        <label for="password" id ="passwordLbl" style="visibility:hidden">
+                            Password is not valid. It should contain atleast one number and one special character
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="register.js"></script>
+    </body>
+</html>
