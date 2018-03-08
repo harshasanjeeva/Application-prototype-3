@@ -7,8 +7,17 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:700" />
-    
+    <link rel="stylesheet"
+    type="text/css"
+    href="css/jquery-ui-lightness/jquery-ui.min.css" />
+<script type="text/javascript"
+      src="js/jquery.js">
+</script>
+<script type="text/javascript"
+      src="js/jquery-ui-lightness/jquery-ui.min.js">
+</script>
     <style type="text/css">
     
 body {
@@ -427,14 +436,38 @@ footer[role="contentinfo"] {
     <header class="site-header cf">
   <div class="container">
     <div class="site-logo"><h1>Salahe</h1></div>
-    <nav class="site-nav">
-      <ul id="std-menu">
-        <li><a class="active" href="">Home</a></li>
-        <li><a href="">Signin</a></li>
-        <li><a href="">Signup</a></li>
-      </ul>
+    
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">Salahe</a>
+                <ul id="tabs">
+                    <li><a class="active" href="">Home</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                    <li><a href="/main">Signout</a></li>
+                  </ul>
+            </div>
+        </div>
+        </nav>
+    
+   
+    
+    <!-- <nav class="site-nav">
+
+
+      
+ 
+
+
       <a href="" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>
-    </nav>
+    </nav> -->
   </div> <!-- /container -->
 </header>
 
@@ -501,6 +534,21 @@ footer[role="contentinfo"] {
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4zq739AYCMcF3U00DK2yrU2yRC1hqG8&callback=initMap">
 </script>
+<script>$(init);
+
+  function init()
+  {
+      $("#tabs").tabs();
+  }</script>
+
+
+<script
+src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script src="my_jquery_functions.js"></script>
  <script  src="js/index.js"></script>
 </body>
 </html>

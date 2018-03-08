@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="en"> 
+
+<!-- Adapted from: 
+     HTML5 and CSS3 for Dummies, 3rd ed.
+     by Andy Harris
+     Wiley, 2014
+     ISBN 978-1-118-28938-9
+ -->
+
+<head>
+    <title>Drag and Drop</title>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
+
+
+    </script>
+    <script>
+            $(init);
+
+function init()
+{
+    cloneDragMe();
+
+    $(".dragMe").draggable();
+    $("#target").droppable();
+
+    $("#target").bind("drop",    highlightTarget);
+    $("#target").bind("dropout", resetTarget);
+}
+
+function cloneDragMe()
+{
+    for (i = 1; i <= 4; i++){
+        zValue = 101 + i;
+        xPos = 20*i;
+        yPos = 80 + 20*i + "px";
+        $("div:first").clone()
+                      .insertAfter("div:first")
+                      .css("left", xPos)
+                      .css("top", yPos)
+                      .css("zIndex", zValue)
+                      .append(" #" + i);
+    }
+}
+
+function highlightTarget(event, ui)
+{
+    $("#target").addClass("ui-state-highlight")
+                .html("Dropped ")
+                .append(ui.draggable.text());
+} 
+
+function resetTarget(event, ui)
+{
+    $("#target").removeClass("ui-state-highlight")
+                .html("Drop on me");
+}
+    </script>
+    <style>.dragMe {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            text-align: center;
+            background-color: white;
+            position: absolute;
+            z-index: 100;
+        }
+        
+        #target {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            text-align: center;
+            position: absolute;
+            left: 300px;
+            top: 100px;
+            z-index: 0;
+        }</style>
+</head>
+
+<body>
+    <h1>Drag and Drop Demo</h1>
+    <div class="dragMe">
+        DRAG ME
+    </div>
+    <div id="target">
+        DROP HERE
+    </div>
+</body>
+</html>

@@ -33,4 +33,7 @@ router.post('/menu', ctrlMain.post_menu);
 
 router.get('/login', ctrlMain.get_login);
 
+router.get('/feedback', ctrlMain.feedback);
+
+
 module.exports = router;

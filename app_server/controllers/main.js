@@ -174,6 +174,14 @@ module.exports.get_menu = function(request, result)
     sendPage('select.html', result);
 };
 
+
+module.exports.feedback = function(request, result) 
+{
+    sendPage('feedback.html', result);
+};
+
+
+
 module.exports.post_menu = function(request, result) 
 {
     var direction = request.body.direction;
