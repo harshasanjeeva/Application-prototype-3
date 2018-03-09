@@ -106,6 +106,11 @@ module.exports.login = function(request, result)
     sendPage('login.html', result);
 };
 
+module.exports.postlogin = function(request, result) 
+{
+    sendPage('index.html', result);
+};
+
 module.exports.post_login = function(request, result) 
 {
     console.log("request--->",request)
@@ -129,6 +134,11 @@ module.exports.register = function(request, result)
 module.exports.post_register = function(request, result) 
 {
     sendPage('login.html', result);
+};
+
+module.exports.get_feedback = function(request, result) 
+{
+    sendPage('feedback.html', result);
 };
 
 module.exports.get_textfields = function(request, result) 
@@ -227,9 +237,4 @@ module.exports.post_menu = function(request, result)
     text = text + ', ' + getName(request);
     text = modify(text, request);
     sendBody(text, result);
-};
-
-module.exports.get_login= function(request, result) 
-{
-    sendPage('login.html', result);
 };

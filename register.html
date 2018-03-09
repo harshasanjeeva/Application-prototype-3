@@ -3,10 +3,19 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Salahe</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="login.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css" />
+        <link rel="stylesheet" href="login.css" type="text/css"/>
         <script type="text/javascript">
+            /* global $ */
+            $( function() {
+                $("#dob").datepicker();
+                $("#gender").checkboxradio();
+            } );
+            
             function uname(){
                 document.getElementById("usernameLbl").style.visibility = "hidden";
             }
@@ -71,22 +80,30 @@
     
     <body>
         <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="/">Salahe</a>
+            <div class="container">
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+                    <!--  <span class="sr-only">Toggle navigation</span>-->
+                    <!--  <span class="icon-bar"></span>-->
+                    <!--  <span class="icon-bar"></span>-->
+                    <!--  <span class="icon-bar"></span>-->
+                    <!--</button>-->
+                    <!--<a class="navbar-brand" href="/">Salahe</a>-->
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/login">Salahe</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
         </nav>
         
         <div class="row">
-            <h1 style="text-align: center">Login</h1>
+            <h1 style="text-align: center">Register</h1>
             <div style="width: 30%; margin: 25px auto;">
                 <form action="/register" method="post" onsubmit= "return validate()">
                     <div class="form-group">
@@ -105,6 +122,11 @@
                         <input class="form-control" id="phone" type="text" name="phone" placeholder="phone" onfocus="phone()">
                         <label for="phone" id ="phoneLbl" style="visibility:hidden">
                             Phone number is not valid. Should be of the format (999) 999-9999
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="dob" type="text" name="dob" placeholder="Date of Birth">
+                        <label for="dob" id ="dobLbl" style="visibility:hidden">
                         </label>
                     </div>
                     <div class="form-group">

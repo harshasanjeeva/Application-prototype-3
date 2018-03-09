@@ -9,406 +9,350 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:700" />
-    <link rel="stylesheet"
-    type="text/css"
-    href="css/jquery-ui-lightness/jquery-ui.min.css" />
-<script type="text/javascript"
-      src="js/jquery.js">
-</script>
-<script type="text/javascript"
-      src="js/jquery-ui-lightness/jquery-ui.min.js">
-</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login.css" type="text/css"/>
+    <script type="text/javascript">
+      /* global $ */
+      $( function() {
+        $("#categoryChoose").selectmenu();
+      } );
+    </script>
     <style type="text/css">
-    
-body {
-  margin: 0;
-}
-
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-/* ::: Typography ::: */
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-small {
-  font-size: 80%;
-}
-
-/* ::: Embedded content ::: */
-/**
- * Remove border when inside `a` element in IE 8/9.
- */
-img {
-  border: 0;
-}
-
-/* GENERAL (APPLIED TO ELEMENTS)
------------------------------------------- */
-body {
-  font: 100%/1.2 Georgia, "Times New Roman", serif;
-}
-
-h1 {
-  color: #212121;
-  font-family: 'Lato', sans-serif;
-  font-size: 3.25em;
-  font-weight: 300;
-  letter-spacing: -2px;
-  line-height: .975;
-}
-
-.about h2,
-.mod h2,
-.nav-main a {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  float: right;
-}
-
-.about h2,
-.mod h2 {
-  font-size: .875em; /* 15px/16px */
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-a {
-  color: #1162a4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.more:after {
-  content: ' Â»';
-}
-
-img {
-  border: 0;
-}
-
-/* CONTAINERS
------------------------------------------- */
-.page {
-  margin: 0 auto;
-  width: 960px;
-}
-
-.container {
-  padding-bottom: 1.9375em;
-}
-
-main {
-  float: left;
-  width: 600px;
-  padding-right: 2em;
-  border-right: 3px solid #c8c8c8;
-}
-
-.sidebar {
-  float: right;
-  margin-top: 1.875em;
-  width: 300px;
-}
-
-/*------Header----------------------*/
-
-.site-header {
-  position: relative;
-  padding: 35px;
-  font-family: "Open Sans Condensed", sans-serif;
-  background: #f0f0f0;
-  box-shadow: 0 5px 5px silver;
-  margin-bottom: 0;
-  padding: .85em 8 .0em;
-}
-@media only screen and (max-width: 600px) {
-  .site-header {
-    padding: 15px 0;
-  }
-}
-.site-header .site-logo,
-.site-header .site-nav {
-  float: left;
-  width: 50%;
-}
-.site-header .site-nav {
-  margin: 5px 0 0;
-  text-align: right;
-}
-.site-header .site-nav li {
-  display: inline-block;
-  margin: 0 5px;
-}
-.site-header .site-nav a {
-  font-size: 1.1em;
-  display: block;
-  padding: 5px;
-  color: #F44336;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 300;
-  transition: color .2s ease;
-  border: 0;
-  transition: color .5s ease-in-out;
-}
-.site-header .site-nav a:hover {
-  color: #B71C1C;
-}
-.site-header .site-nav a.active {
-  color: #222;
-}
-.site-header .site-logo {
-  text-align: left;
-  font-weight: 700;
-  margin: 0;
-}
-.site-header .site-logo h1 {
-  margin: 0;
-  color: #B71C1C;
-}
-
-.site-nav ul,
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
-
-
-
-/* MAIN CONTENT
------------------------------------------- */
-main > .post:first-child > h1 {
-  margin-top: 0.904em;
-}
-
-h1 {
-  margin-bottom: .4125em;
-}
-
-.post-photo {
-  float: left;
-  margin-bottom: 2px;
-  margin-right: 22px;
-  max-width: 61.667%;
-}
-
-.post-blurb p {
-  color: #363636;
-  font-size: 1em;
-  line-height: 1.4;
-  padding-top: .10em;
-}
-
-/* ::: Blog Post Footer ::: */
-.post-footer {
-  border-bottom: 1px solid #dbdbdb;
-  border-top: 1px solid #dbdbdb;
-  padding-bottom: .7em;
-  padding-top: .7em;
-}
-
-.post-footer time:before {
-  content: 'â€¢  ';
-}
-
-.post-footer a {
-  font-weight: bold;
-}
-
-.footer p {
-  color: #3a3a3a;
-  font-family: arial, helvetica, sans-serif;
-  font-size: 0.688em;
-}
-
-.footer p small {
-  font-size: inherit;
-}
-
-/* ::: Pagination Links Below Blog Posts ::: */
-.pagination {
-  margin: 45px 0 0;
-  padding: 0;
-}
-
-.pagination li {
-  display: inline-block;
-  font: 0.875em arial, helvetica, sans-serif;
-  margin-right: 0.25em;
-}
-
-/* SIDEBAR
------------------------------------------- */
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.content .sidebar {
-  margin: 20px 0 0;
-
-  padding: 5px;
-  
-  width: 30%;
-}
-@media only screen and (max-width: 400px) {
-  .content .sidebar {
-    float: none;
-    width: 100%;
-  }
-}
-
-.content .window {
-  border-radius: 5px;
-  background: #f0f0f0;
-  box-shadow: 0 5px 5px silver;
-  padding: 15px;
-  margin: 0 0 33px;
-}
-.content .window.window-has-contact {
-  background: #f9f9f9;
-}
-
-#map {
-  width: 105%;
-  height: 600px;
-  margin-top: 10px;
-  /*float: left;
-  background-color: grey;*/
-}
-
-.form {
-  font-family: "Open Sans Condensed", sans-serif;
-  width: 100%;
-}
-
-.form .form-block {
-  margin: 10px 0;
-  min-width: 100%;
-  display: block;
-}
-
-.form #send-btn {
-  padding: 10px;
-  outline: none;
-  border: 0;
-  background-color: #F44336;
-  color: whitesmoke;
-  font-family: "Open Sans Condensed", sans-serif !important;
-  width: 20%;
-  height: 5%; 
-  font-size: 1.10em;
-  box-shadow: 0 2px 3px silver;
-}
-/* FOOTER
------------------------------------------- */
-footer[role="contentinfo"] {
-  border-top: 1px solid #cacbcb;
-}
-
-
-/* html5boilerplate.com Clearfix
---------------------------------- */
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.imgdisplay {
-  background: url(/image/image.jpg) no-repeat;
-  cursor:pointer;
-  border:none;
-}
+      /*body {*/
+      /*  margin: 0;*/
+      /*}*/
+      a:focus {
+        outline: thin dotted;
+      }
+      a:active,
+      a:hover {
+        outline: 0;
+      }
+      /* ::: Typography ::: */
+      /**
+       * Address inconsistent and variable font size in all browsers.
+       */
+      small {
+        font-size: 80%;
+      }
+      /* ::: Embedded content ::: */
+      /**
+       * Remove border when inside `a` element in IE 8/9.
+       */
+      img {
+        border: 0;
+      }
+      /* GENERAL (APPLIED TO ELEMENTS)
+      ------------------------------------------ */
+      /*body {*/
+      /*  font: 100%/1.2 Georgia, "Times New Roman", serif;*/
+      /*}*/
+      h1 {
+        color: #212121;
+        font-family: 'Lato', sans-serif;
+        font-size: 3.25em;
+        font-weight: 300;
+        letter-spacing: -2px;
+        line-height: .975;
+      }
+      .about h2,
+      .mod h2,
+      .nav-main a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        float: right;
+      }
+      .about h2,
+      .mod h2 {
+        font-size: .875em; /* 15px/16px */
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
+      a {
+        color: #1162a4;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .more:after {
+        content: ' Â»';
+      }
+      img {
+        border: 0;
+      }
+      /* CONTAINERS
+      ------------------------------------------ */
+      .page {
+        margin: 0 auto;
+        width: 960px;
+      }
+      /*.container {*/
+      /*  padding-bottom: 1.9375em;*/
+      /*}*/
+      main {
+        float: left;
+        width: 600px;
+        padding-right: 2em;
+        border-right: 3px solid #c8c8c8;
+      }
+      .sidebar {
+        float: right;
+        margin-top: 1.875em;
+        width: 300px;
+      }
+      /*------Header----------------------*/
+      .site-header {
+        position: relative;
+        padding: 35px;
+        font-family: "Open Sans Condensed", sans-serif;
+        background: #f0f0f0;
+        box-shadow: 0 5px 5px silver;
+        margin-bottom: 0;
+        padding: .85em 8 .0em;
+      }
+      @media only screen and (max-width: 600px) {
+        .site-header {
+          padding: 15px 0;
+        }
+      }
+      .site-header .site-logo,
+      .site-header .site-nav {
+        float: left;
+        width: 50%;
+      }
+      .site-header .site-nav {
+        margin: 5px 0 0;
+        text-align: right;
+      }
+      .site-header .site-nav li {
+        display: inline-block;
+        margin: 0 5px;
+      }
+      .site-header .site-nav a {
+        font-size: 1.1em;
+        display: block;
+        padding: 5px;
+        color: #F44336;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 300;
+        transition: color .2s ease;
+        border: 0;
+        transition: color .5s ease-in-out;
+      }
+      .site-header .site-nav a:hover {
+        color: #B71C1C;
+      }
+      .site-header .site-nav a.active {
+        color: #222;
+      }
+      .site-header .site-logo {
+        text-align: left;
+        font-weight: 700;
+        margin: 0;
+      }
+      .site-header .site-logo h1 {
+        margin: 0;
+        color: #B71C1C;
+      }
+      .site-nav ul,
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      /* MAIN CONTENT
+      ------------------------------------------ */
+      main > .post:first-child > h1 {
+        margin-top: 0.904em;
+      }
+      h1 {
+        margin-bottom: .4125em;
+      }
+      .post-photo {
+        float: left;
+        margin-bottom: 2px;
+        margin-right: 22px;
+        max-width: 61.667%;
+      }
+      .post-blurb p {
+        color: #363636;
+        font-size: 1em;
+        line-height: 1.4;
+        padding-top: .10em;
+      }
+      /* ::: Blog Post Footer ::: */
+      .post-footer {
+        border-bottom: 1px solid #dbdbdb;
+        border-top: 1px solid #dbdbdb;
+        padding-bottom: .7em;
+        padding-top: .7em;
+      }
+      .post-footer time:before {
+        content: 'â€¢  ';
+      }
+      .post-footer a {
+        font-weight: bold;
+      }
+      .footer p {
+        color: #3a3a3a;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 0.688em;
+      }
+      .footer p small {
+        font-size: inherit;
+      }
+      /* ::: Pagination Links Below Blog Posts ::: */
+      .pagination {
+        margin: 45px 0 0;
+        padding: 0;
+      }
+      .pagination li {
+        display: inline-block;
+        font: 0.875em arial, helvetica, sans-serif;
+        margin-right: 0.25em;
+      }
+      /* SIDEBAR
+      ------------------------------------------ */
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .content .sidebar {
+        margin: 20px 0 0;
+        padding: 5px;
+        width: 30%;
+      }
+      @media only screen and (max-width: 400px) {
+        .content .sidebar {
+          float: none;
+          width: 100%;
+        }
+      }
+      .content .window {
+        border-radius: 5px;
+        background: #f0f0f0;
+        box-shadow: 0 5px 5px silver;
+        padding: 15px;
+        margin: 0 0 33px;
+      }
+      .content .window.window-has-contact {
+        background: #f9f9f9;
+      }
+      #map {
+        width: 105%;
+        height: 600px;
+        margin-top: 10px;
+        /*float: left;
+        background-color: grey;*/
+      }
+      .form {
+        font-family: "Open Sans Condensed", sans-serif;
+        width: 100%;
+      }
+      .form .form-block {
+        margin: 10px 0;
+        min-width: 100%;
+        display: block;
+      }
+      .form #send-btn {
+        padding: 10px;
+        outline: none;
+        border: 0;
+        background-color: #F44336;
+        color: whitesmoke;
+        font-family: "Open Sans Condensed", sans-serif !important;
+        width: 20%;
+        height: 5%; 
+        font-size: 1.10em;
+        box-shadow: 0 2px 3px silver;
+      }
+      /* FOOTER
+      ------------------------------------------ */
+      footer[role="contentinfo"] {
+        border-top: 1px solid #cacbcb;
+      }
+      /* html5boilerplate.com Clearfix
+      --------------------------------- */
+      .clearfix:before,
+      .clearfix:after {
+        content: " ";
+        display: table;
+      }
+      .clearfix:after {
+        clear: both;
+      }
+      .imgdisplay {
+        background: url(/image/image.jpg) no-repeat;
+        cursor:pointer;
+        border:none;
+      }
     </style>
     <script type="text/javascript">
-
-
 		var map, infoWindow;
-		function initMap() {
-		  map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: -34.397, lng: 150.644},
-		    zoom: 16
-		  });
-		  infoWindow = new google.maps.InfoWindow;
-
-		  // Try HTML5 geolocation.
-		  if (navigator.geolocation) {
-		    navigator.geolocation.getCurrentPosition(function(position) {
-		      var pos = {
-		        lat: position.coords.latitude,
-		        lng: position.coords.longitude
-		      };
-		      //if (status == google.maps.GeocoderStatus.OK) {
-
-		      //}
-		      console.log(pos)
-		      setTimeout(function() {
-		      //your code to be executed after 1 second
-          var marker = new google.maps.Marker({
-		         position: pos,
-		         map: map,
-		        title: 'Hello World!' 
-		      });
-		      }, 50);
-
-		      //  infoWindow.setPosition(pos);
-		      //  infoWindow.setContent('Location found.');
-		      //  infoWindow.open(map);
-		      map.setCenter(pos);
-		    }, function() {
-		      handleLocationError(true, infoWindow, map.getCenter());
-		    });
-		  } else {
-		    // Browser doesn't support Geolocation
-		    handleLocationError(false, infoWindow, map.getCenter());
+  		function initMap() {
+  		  map = new google.maps.Map(document.getElementById('map'), {
+  		    center: {lat: -34.397, lng: 150.644},
+  		    zoom: 16
+  		  });
+  		  infoWindow = new google.maps.InfoWindow;
+  
+  		  // Try HTML5 geolocation.
+  		  if (navigator.geolocation) {
+  		    navigator.geolocation.getCurrentPosition(function(position) {
+  		      var pos = {
+  		        lat: position.coords.latitude,
+  		        lng: position.coords.longitude
+  		      };
+  		      //if (status == google.maps.GeocoderStatus.OK) {
+  
+  		      //}
+  		      console.log(pos)
+  		      setTimeout(function() {
+  		      //your code to be executed after 1 second
+            var marker = new google.maps.Marker({
+  		         position: pos,
+  		         map: map,
+  		        title: 'Hello World!' 
+  		      });
+  		      }, 50);
+  
+  		      //  infoWindow.setPosition(pos);
+  		      //  infoWindow.setContent('Location found.');
+  		      //  infoWindow.open(map);
+  		      map.setCenter(pos);
+  		    }, function() {
+  		      handleLocationError(true, infoWindow, map.getCenter());
+  		    });
+  		  } else {
+  		    // Browser doesn't support Geolocation
+  		    handleLocationError(false, infoWindow, map.getCenter());
+  		  }
+  		}
+		  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        // infoWindow.setPosition(pos);
+        var marker = new google.maps.Marker({
+          position: pos,
+  		    map: map,
+  		    title: 'Hello World!' 
+  		  });
+  		  infoWindow.setContent(browserHasGeolocation ?
+  		                        'Error: The Geolocation service failed.' :
+  		                        'Error: Your browser doesn\'t support geolocation.');
+  		  infoWindow.open(map);
 		  }
-		}
-
-		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-     // infoWindow.setPosition(pos);
-     var marker = new google.maps.Marker({
-		         position: pos,
-		         map: map,
-		        title: 'Hello World!' 
-		      });
-		  infoWindow.setContent(browserHasGeolocation ?
-		                        'Error: The Geolocation service failed.' :
-		                        'Error: Your browser doesn\'t support geolocation.');
-		  infoWindow.open(map);
-		}
-
-
-
-
-
     	function showContent()
     	{
     		debugger;
     		var output = document.getElementById("categoryChoose").value;
-    		
     		if(output == "restaurant")
     		{
     			var display = "<h1>Restaurants</h1><br> <p>You will find the most convinient priced hotels here!</p>";
@@ -424,82 +368,65 @@ footer[role="contentinfo"] {
     			var display = "<h1>Shopping</h1><br> <p>Get a great discounts and your favourite shopping destinations!</p>";
           document.getElementById("outputStr").style.backgroundImage = "url('http://learnenglishteens.britishcouncil.org/sites/teens/files/rs5994_465129591-low.jpg')";
     		}
-
     		document.getElementById("outputStr").innerHTML =display;
     	}
     </script>
 </head>
 <body>
+  <!--<header class="site-header cf">-->
+  <!--    <div class="container">-->
+  <!--      <div class="site-logo"><h1>Salahe</h1></div>-->
+  <!--      <nav class="site-nav">-->
+  <!--        <ul id="std-menu">-->
+  <!--          <li><a class="active" href="">Home</a></li>-->
+  <!--          <li><a href="">Signin</a></li>-->
+  <!--          <li><a href="">Signup</a></li>-->
+  <!--        </ul>-->
+  <!--        <a href="" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>-->
+  <!--      </nav>-->
+  <!--    </div> <!-- /container -->
+  <!--  </header>-->
+  <nav class="navbar navbar-default">
+    <div class="container">
+    <!--<div class="navbar-header">-->
+    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+    <!--  <span class="sr-only">Toggle navigation</span>-->
+    <!--  <span class="icon-bar"></span>-->
+    <!--  <span class="icon-bar"></span>-->
+    <!--  <span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a class="navbar-brand" href="/">Salahe</a>-->
+    <!--</div>-->
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/postlogin">Salahe</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/feedback">Feedback</a></li>
+          <li><a href="/login">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <div class="page">
     <!-- ==== START MASTHEAD ==== -->
-   
-    <header class="site-header cf">
-  <div class="container">
-    <div class="site-logo"><h1>Salahe</h1></div>
-    
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="/">Salahe</a>
-                <ul id="tabs">
-                    <li><a class="active" href="">Home</a></li>
-                    <li><a href="/feedback">Feedback</a></li>
-                    <li><a href="/main">Signout</a></li>
-                  </ul>
-            </div>
-        </div>
-        </nav>
-    
-   
-    
-    <!-- <nav class="site-nav">
-
-
-      
- 
-
-
-      <a href="" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>
-    </nav> -->
-  </div> <!-- /container -->
-</header>
-
     <div class="container clearfix">
 	    <!-- ==== START MAIN ==== -->
-	    <main role="main">
-	        <section class="post">
-	            
-				<div id="map" ></div>
-	           
-	            
-	           
-	        </section>
-
-	        <section class="post">
-	            <div class="post-blurb">      
-	            <div> 
-	            <p id="outputStr">
-	            		Best suggestions got here!
-	            </p>
-	            </div>
-	            </div>           
-	
-	              
-	        </section>
-	
-	        
+      <main role="main">
+        <section class="post">
+  				<div id="map" ></div>
+  	    </section>
+  	    <section class="post">
+          <div class="post-blurb">      
+    	      <div> 
+              <p id="outputStr">
+                Best suggestions got here!
+      	      </p>
+    	      </div>
+  	      </div>           
+        </section>
 	    </main>
-	    <!-- end main -->
-	
-	    <!-- ==== START SIDEBAR ==== -->
-	   
+
    <div class="content"> 
 	  <aside class="sidebar">
       <div class="window">
@@ -515,14 +442,13 @@ footer[role="contentinfo"] {
           
             
 
-           <select id="categoryChoose">
-           			<option value="">--</option>
-                    <option value="restaurant">Restaurants</option>
-                    <option value="movie">Movies</option>
-                    <option value="shop">Shopping</option>
-           </select>
+          <select id="categoryChoose" name="categoryChoose">
+           	<option value="">--</option>
+            <option value="restaurant">Restaurants</option>
+            <option value="movie">Movies</option>
+            <option value="shop">Shopping</option>
+          </select>
            <input type="button" value="Go" class="imgdisplay" onClick="showContent()"></button>
-          
         </form>
       </div>
     </aside>

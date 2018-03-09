@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 var ctrlMain = require("../controllers/main");
 
-
 router.get('/', ctrlMain.landing); 
 
 router.get('/home', ctrlMain.home);
 
-router.get('/main', ctrlMain.login);
+router.get('/login', ctrlMain.login);
 
-router.post('/login', ctrlMain.post_login);
+router.post('/postlogin', ctrlMain.post_login);
+
+router.get('/postlogin', ctrlMain.postlogin);
 
 router.get('/register', ctrlMain.register);
 
@@ -31,7 +32,7 @@ router.get('/menu', ctrlMain.get_menu);
 
 router.post('/menu', ctrlMain.post_menu);
 
-router.get('/login', ctrlMain.get_login);
+router.get('/feedback', ctrlMain.get_feedback);
 
 router.get('/feedback', ctrlMain.feedback);
 
