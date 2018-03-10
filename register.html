@@ -4,11 +4,50 @@
     <head>
         <meta charset="UTF-8">
         <title>Salahe</title>
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css" />        
+  <style>
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 110px; height: 110px; padding: 0.5em; float: left; margin: 10px; }
+  .bgimg {
+    background-image: url('/Sign-up.jpg');
+}
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+
+  $( function() {
+      /* global $ */
+    $( "#draggable" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+          .html( "Dropped!" );
+          document.getElementById("regbutn").style.visibility = "visible"
+          document.getElementById("draggable").style.visibility = "hidden"
+          document.getElementById("droppable").style.visibility = "hidden"
+      }
+    });
+  } );
+
+  </script>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css" />
         <link rel="stylesheet" href="login.css" type="text/css"/>
+        
+        
+  
+        
         <script type="text/javascript">
             /* global $ */
             $( function() {
@@ -135,12 +174,33 @@
                             Password is not valid. It should contain atleast one number and one special character
                         </label>
                     </div>
-                    <div class="form-group">
-                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                    
+                    
+                    <div id="draggable" class="bgimg" >
+                      <p>Authenticate yourslef by Drag me to my target</p>
                     </div>
+ 
+                    <div id="droppable" class="ui-widget-header">
+                      <p>Drop here</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button id="regbutn" class="btn btn-lg btn-primary btn-block" style="visibility:hidden">Register</button>
+                    </div>
+                    
+                    
                 </form>
+                
+ 
+
+
+
+               
             </div>
         </div>
-        <script type="text/javascript" src="register.js"></script>
+        
+       
+        
+        <script type="text/javascript" src="register.js"></script>-->
     </body>
 </html>
