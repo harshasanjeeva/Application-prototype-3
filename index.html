@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,52 +7,118 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:700" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="login.css" type="text/css"/>
-   
-    <script type="text/javascript"> 
-   
-    function openCity(cityName) {
-      var i;
-      var x = document.getElementsByClassName("city");
-      for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none"; 
-      }
-      document.getElementById(cityName).style.display = "block"; 
-  }
-  
-  </script>
-   
-   <script type="text/javascript">
-      $( function() {
-
-     
-
-
-        $( "#tabs" ).tabs();
-        $('#jqxTabs').jqxTabs({ width: 580, height: 200 });
-        var loadPage = function (url, tabIndex) {
-  $.get(url, function (data) {
-	$('#content' + tabIndex).html(data);
-  });
-}
-loadPage('pages/ajax1.htm', 1);
-$('#jqxTabs').bind('selected', function (event) {
-  var pageIndex = event.args.item + 1;
-  loadPage('pages/ajax' + pageIndex + '.htm', pageIndex);
-});
-      } );
-      </script>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css">        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
     <script type="text/javascript">
-      /* global $ */
-      $( function() {
+      /* global $*/
+      $(init);
+      function init()
+      {
+        $("#tabs").tabs();
+      }
+    </script>
+    <script type="text/javascript"> 
+      /*global $*/
+      $(function(){
         $("#categoryChoose").selectmenu();
-      } );
+      });
+    </script>
+    <script type="text/javascript">
+		var map, infoWindow;
+		/* global google*/
+		/* global navigator*/
+  		function initMap() {
+  		  map = new google.maps.Map(document.getElementById('map'), {
+  		    center: {lat: -34.397, lng: 150.644},
+  		    zoom: 16
+  		  });
+  		  infoWindow = new google.maps.InfoWindow;
+  
+  		  // Try HTML5 geolocation.
+  		  if (navigator.geolocation) {
+  		    navigator.geolocation.getCurrentPosition(function(position) {
+  		      var pos = {
+  		        lat: position.coords.latitude,
+  		        lng: position.coords.longitude
+  		      };
+  		      //if (status == google.maps.GeocoderStatus.OK) {
+  
+  		      //}
+  		      console.log(pos);
+  		      setTimeout(function() {
+  		      //your code to be executed after 1 second
+            var marker = new google.maps.Marker({
+  		         position: pos,
+  		         map: map,
+  		        title: 'Hello World!' 
+  		      });
+  		      }, 50);
+  
+  		      //  infoWindow.setPosition(pos);
+  		      //  infoWindow.setContent('Location found.');
+  		      //  infoWindow.open(map);
+  		      map.setCenter(pos);
+  		    }, function() {
+  		      handleLocationError(true, infoWindow, map.getCenter());
+  		    });
+  		  } else {
+  		    // Browser doesn't support Geolocation
+  		    handleLocationError(false, infoWindow, map.getCenter());
+  		  }
+  		}
+		  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        // infoWindow.setPosition(pos);
+        var marker = new google.maps.Marker({
+          position: pos,
+  		    map: map,
+  		    title: 'Hello World!' 
+  		  });
+  		  infoWindow.setContent(browserHasGeolocation ?
+  		                        'Error: The Geolocation service failed.' :
+  		                        'Error: Your browser doesn\'t support geolocation.');
+  		  infoWindow.open(map);
+		  }
+    	function showContent()
+    	{
+    		debugger;
+    		var output = document.getElementById("categoryChoose").value;
+    		if(output == "restaurant")
+    		{
+          var display = "<h1>Restaurants</h1><br> <p>You will find the most convinient priced hotels here!</p>";
+          // $('#image').css("background-image", "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')");
+          // document.getElementById("image").style.backgroundImage = "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')";
+          
+          document.getElementById("image").style.backgroundImage = "url('http://everything-pr.com/wp-content/uploads/2015/08/Restaurant.jpg')";
+       
+                     // document.getElementById("image").style.maxWidth = "100%";
+      
+        }
+    		else if(output == "movie")
+    		{
+            display = "<h1>Movies</h1><br> <p>Find amazing place to watch your favourite movies with loved ones!</p>";
+          //https://pmcdeadline2.files.wordpress.com/2017/08/amc-entertainment-theater.jpg?w=446&h=299&crop=1
+
+          
+          document.getElementById("image").style.backgroundImage = "url('http://nebula.wsimg.com/9db3d866ee502de656487d012cc67d7a?AccessKeyId=1D460FC576A381A2893F&disposition=0&alloworigin=1')";
+    		}
+    		else if(output == "shop")
+    		{
+            //http://learnenglishteens.britishcouncil.org/sites/teens/files/rs5994_465129591-low.jpg
+    			  display = "<h1>Shopping</h1><br> <p>Get a great discounts and your favourite shopping destinations!</p>";
+            document.getElementById("image").style.backgroundImage = "url('https://www.mallofamerica.com/sites/default/files/2017-11/shopping-hero-first_card_1.jpg')";
+    		}
+    		document.getElementById("outputStr").innerHTML =display;
+    	}
     </script>
     <style type="text/css">
       /*body {*/
@@ -331,97 +396,10 @@ $('#jqxTabs').bind('selected', function (event) {
         border:none;
       }
     </style>
-    <script type="text/javascript">
-		var map, infoWindow;
-  		function initMap() {
-  		  map = new google.maps.Map(document.getElementById('map'), {
-  		    center: {lat: -34.397, lng: 150.644},
-  		    zoom: 16
-  		  });
-  		  infoWindow = new google.maps.InfoWindow;
-  
-  		  // Try HTML5 geolocation.
-  		  if (navigator.geolocation) {
-  		    navigator.geolocation.getCurrentPosition(function(position) {
-  		      var pos = {
-  		        lat: position.coords.latitude,
-  		        lng: position.coords.longitude
-  		      };
-  		      //if (status == google.maps.GeocoderStatus.OK) {
-  
-  		      //}
-  		      console.log(pos)
-  		      setTimeout(function() {
-  		      //your code to be executed after 1 second
-            var marker = new google.maps.Marker({
-  		         position: pos,
-  		         map: map,
-  		        title: 'Hello World!' 
-  		      });
-  		      }, 50);
-  
-  		      //  infoWindow.setPosition(pos);
-  		      //  infoWindow.setContent('Location found.');
-  		      //  infoWindow.open(map);
-  		      map.setCenter(pos);
-  		    }, function() {
-  		      handleLocationError(true, infoWindow, map.getCenter());
-  		    });
-  		  } else {
-  		    // Browser doesn't support Geolocation
-  		    handleLocationError(false, infoWindow, map.getCenter());
-  		  }
-  		}
-		  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        // infoWindow.setPosition(pos);
-        var marker = new google.maps.Marker({
-          position: pos,
-  		    map: map,
-  		    title: 'Hello World!' 
-  		  });
-  		  infoWindow.setContent(browserHasGeolocation ?
-  		                        'Error: The Geolocation service failed.' :
-  		                        'Error: Your browser doesn\'t support geolocation.');
-  		  infoWindow.open(map);
-		  }
-    	function showContent()
-    	{
-    		debugger;
-    		var output = document.getElementById("categoryChoose").value;
-    		if(output == "restaurant")
-    		{
-          var display = "<h1>Restaurants</h1><br> <p>You will find the most convinient priced hotels here!</p>";
-          // $('#image').css("background-image", "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')");
-          // document.getElementById("image").style.backgroundImage = "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')";
-          
-          document.getElementById("image").style.backgroundImage = "url('http://everything-pr.com/wp-content/uploads/2015/08/Restaurant.jpg')";
-       
-                     // document.getElementById("image").style.maxWidth = "100%";
-      
-        }
-    		else if(output == "movie")
-    		{
-          var display = "<h1>Movies</h1><br> <p>Find amazing place to watch your favourite movies with loved ones!</p>";
-          //https://pmcdeadline2.files.wordpress.com/2017/08/amc-entertainment-theater.jpg?w=446&h=299&crop=1
-
-          
-          document.getElementById("image").style.backgroundImage = "url('http://nebula.wsimg.com/9db3d866ee502de656487d012cc67d7a?AccessKeyId=1D460FC576A381A2893F&disposition=0&alloworigin=1')";
-    		}
-    		else if(output == "shop")
-    		{
-          //http://learnenglishteens.britishcouncil.org/sites/teens/files/rs5994_465129591-low.jpg
-    			var display = "<h1>Shopping</h1><br> <p>Get a great discounts and your favourite shopping destinations!</p>";
-          document.getElementById("image").style.backgroundImage = "url('https://www.mallofamerica.com/sites/default/files/2017-11/shopping-hero-first_card_1.jpg')";
-    		}
-    		document.getElementById("outputStr").innerHTML =display;
-    	}
-    </script>
 </head>
 <body id="image">
-
   <nav class="navbar navbar-default">
     <div class="container">
-
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="/postlogin">Salahe</a></li>
@@ -433,13 +411,13 @@ $('#jqxTabs').bind('selected', function (event) {
       </div>
     </div>
   </nav>
-<div class="page">
+  <div class="page">
     <!-- ==== START MASTHEAD ==== -->
     <div class="container clearfix">
 	    <!-- ==== START MAIN ==== -->
       <main role="main">
         <section class="post">
-  				<div id="map" ></div>
+  				<div id="map"></div>
   	    </section>
   	    <section class="post">
           <div class="post-blurb">      
@@ -451,87 +429,51 @@ $('#jqxTabs').bind('selected', function (event) {
   	      </div>           
         </section>
 	    </main>
-
-   <div class="content"> 
-	  <aside class="sidebar" style="margin-right: 100px">
-      <div class="window">
-         <!-- <h2>About us...</h2>
-         <p>Salahe brings you your favourite places to you.<br>You will get the best user experience.</p> -->
-              <!-- 
-
-TABS starting
-       -->
-       <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openCity('London')">About us</button>
-        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Reviews about Salahe</button>
-        <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Upcoming Features</button>
+        <div class="content"> 
+      	  <aside class="sidebar" style="margin-right: 100px">
+            <div class="window">
+              <div id="tabs">
+                <ul>
+                	<li><a href="#about">About</a></li>
+                	<li><a href="#contact">Contact</a></li>
+                </ul>
+                <div id="about">
+                  <h2>About</h2>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                      sed do eiusmod tempor incididunt ut labore et dolore magna 
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                      Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. 
+                  </p>
+              </div>
+              <div id="contact">
+                  <h2>Contact</h2>
+                  <p>
+                      <strong>Sachin </strong> sachinsp14@gmail.com
+                      <strong>Nikhil </strong> nikhilkv246@gmail.com
+                      <strong>Suhas  </strong> suhasjanardhan@gmail.com
+                      <strong>Harsha </strong> harshasanjeeva@gmail.com
+                  </p>
+                </div>
+            </div>
+            <form class="form" action="">
+              <h2>Please select from the list to know more about.</h2>
+              <select id="categoryChoose" name="categoryChoose">
+                <option value="">--</option>
+                <option value="restaurant">Restaurants</option>
+                <option value="movie">Movies</option>
+                <option value="shop">Shopping</option>
+              </select>
+              <input type="button" value="Go" class="imgdisplay" onClick="showContent()"></button>
+            </form>
+          </div>
+        </aside>
       </div>
-       <div id="London" class="city">
-        <h2>About us...</h2>
-        <p>Salahe brings you your favourite places to you.<br>You will get the best user experience.</p>
-      </div>
-      
-      <div id="Paris" class="city" style="display:none">
-        <h2>Reviews</h2>
-        <p>One stop solution for your searches and best recommendations</p>
-        <p>-Times Now</p> 
-      </div>
-      
-      <div id="Tokyo" class="city" style="display:none">
-        <h2>Upcoming Features</h2>
-        <ul>
-          <li>Places to visit</li>
-          <li>Real time recommendations</li>
-        </ul>
-      </div>
-<!-- TABS ENging -->
-      </div>
-      
+    </div>
+  </div> 
 
-
-
-
-      
-      <div class="window">
-        <form class="form" action="">
-          <h2>Please select from the list to know more about.</h2>
-         
-          
-            
-
-          <select id="categoryChoose" name="categoryChoose">
-           	<option value="">--</option>
-            <option value="restaurant">Restaurants</option>
-            <option value="movie">Movies</option>
-            <option value="shop">Shopping</option>
-          </select>
-           <input type="button" value="Go" class="imgdisplay" onClick="showContent()"></button>
-        </form>
-      </div>
-    </aside>
-     </div>
-	    <!-- end sidebar -->
-    
-</div> <!-- end page -->
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4zq739AYCMcF3U00DK2yrU2yRC1hqG8&callback=initMap">
-</script>
-<script>$(init);
-
-  function init()
-  {
-      $("#tabs").tabs();
-  }</script>
-
-
-<script
-src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-</script>
-<script src="my_jquery_functions.js"></script>
- <script  src="js/index.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4zq739AYCMcF3U00DK2yrU2yRC1hqG8&callback=initMap"></script>
 </body>
 </html>

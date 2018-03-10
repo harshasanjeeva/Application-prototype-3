@@ -1,128 +1,83 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salahe</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="login.css" type="text/css" />
-
-  <style>
-  #resizable { width: 150px; height: 150px; padding: 0.5em; }
-  #resizable h3 { text-align: center; margin: 0; }
-  .dragMe {
-    width: 100px;
-    height: 100px;
-    border: 1px solid blue;
-    text-align: center;
-    background-color: white;
-    position: absolute;
-    z-index: 100;
-}
-#target {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    text-align: center;
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    z-index: 0;
-}
-  
-  
-  
-  </style>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<style>
-      #resizable { width: 150px; height: 150px; padding: 0.5em; }
-  #resizable h3 { text-align: center; margin: 0; }
-        #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-        #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Salahe</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="login.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <style>
+            #resizable { width: 150px; height: 150px; padding: 0.5em; }
+            #resizable h3 { text-align: center; margin: 0; }
+            .dragMe {
+                width: 100px;
+                height: 100px;
+                border: 1px solid blue;
+                text-align: center;
+                background-color: white;
+                position: absolute;
+                z-index: 100;
+            }
+            #target {
+                width: 200px;
+                height: 200px;
+                border: 1px solid red;
+                text-align: center;
+                position: absolute;
+                left: 300px;
+                top: 100px;
+                z-index: 0;
+            }
         </style>
-
-        
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link rel="stylesheet"
-  type="text/css"
-  href="css/jquery-ui-lightness/jquery-ui.min.css" />
-  <script type="text/javascript"
-  src="js/jquery-ui-lightness/jquery-ui.min.js">
-</script>
-
-
-  <script>
-  /* global $*/
-  $( function() {
-    $( "#resizable" ).resizable();
-    $( "input" ).checkboxradio();
-    //cloneDragMe();
-    $(".dragMe").draggable();
-    $("#target").droppable();
-    $("#target").bind("drop",    highlightTarget);
-    $("#target").bind("dropout", resetTarget);
-  } );
-
-    function highlightTarget(event, ui)
-    {
-        $("#target").addClass("ui-state-highlight")
-                    .html("Dropped ")
-                    .append(ui.draggable.text());
-    } 
-    function resetTarget(event, ui)
-    {
-        $("#target").removeClass("ui-state-highlight")
-                    .html("Drop on me");
-    }
-</script>
-</head>
-<body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-                <!--  <span class="sr-only">Toggle navigation</span>-->
-                <!--  <span class="icon-bar"></span>-->
-                <!--  <span class="icon-bar"></span>-->
-                <!--  <span class="icon-bar"></span>-->
-                <!--</button>-->
-                <!--<a class="navbar-brand" href="/">Salahe</a>-->
+        <style>
+            #resizable { width: 150px; height: 150px; padding: 0.5em; }
+            #resizable h3 { text-align: center; margin: 0; }
+        </style>
+        <script>
+            /* global $*/
+            $( function() {
+                $( "#resizable" ).resizable();
+            });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/postlogin">Salahe</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/feedback">Feedback</a></li>
+                        <li><a href="/login">Log Out</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/postlogin">Salahe</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/feedback">Feedback</a></li>
-                    <li><a href="/login">Log Out</a></li>
-                </ul>
-            </div>
+        </nav>
+        <h1 style="text-align: center">Feedback Form</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/postfeedback" method="post" onsubmit="return validate()">
+                <div class="form-group">
+                    <label for="name">Name </label><input class="form-control" type="text"  id="name" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email </label><input class="form-control" type="text" id="email" name="email" placeholder="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact </label><input class="form-control" type="text" id="phone" name="phone" placeholder="phone">
+                </div>
+                <div>
+                    <label for="suggestion">Suggestions </label><input type="text" name="suggestion" id="resizable" class="ui-widget-content form-control"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
         </div>
-    </nav>
-    <h1 style="text-align: center">Feedback Form</h1>
-    <div style="width: 30%; margin: 25px auto;">
-        <form action="/postfeedback" method="post" onsubmit="return validate()">
-            <div class="form-group">
-                <label for="name">Name </label><input class="form-control" type="text"  id="name" name="name" placeholder="name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email </label><input class="form-control" type="text" id="email" name="email" placeholder="email">
-            </div>
-            <div class="form-group">
-                <label for="phone">Contact </label><input class="form-control" type="text" id="phone" name="phone" placeholder="phone">
-            </div>
-            <div>
-                <label for="suggestion">Suggestions </label><input type="text" name="suggestion" id="resizable" class="ui-widget-content"/>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block">Submit</button>
-            </div>
-        </form>
-    </div>
-</body>
+    </body>
 </html>
