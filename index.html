@@ -8,12 +8,47 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans:700" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css" type="text/css"/>
+   
+    <script type="text/javascript"> 
+   
+    function openCity(cityName) {
+      var i;
+      var x = document.getElementsByClassName("city");
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none"; 
+      }
+      document.getElementById(cityName).style.display = "block"; 
+  }
+  
+  </script>
+   
+   <script type="text/javascript">
+      $( function() {
+
+     
+
+
+        $( "#tabs" ).tabs();
+        $('#jqxTabs').jqxTabs({ width: 580, height: 200 });
+        var loadPage = function (url, tabIndex) {
+  $.get(url, function (data) {
+	$('#content' + tabIndex).html(data);
+  });
+}
+loadPage('pages/ajax1.htm', 1);
+$('#jqxTabs').bind('selected', function (event) {
+  var pageIndex = event.args.item + 1;
+  loadPage('pages/ajax' + pageIndex + '.htm', pageIndex);
+});
+      } );
+      </script>
     <script type="text/javascript">
       /* global $ */
       $( function() {
@@ -355,48 +390,38 @@
     		var output = document.getElementById("categoryChoose").value;
     		if(output == "restaurant")
     		{
-    			var display = "<h1>Restaurants</h1><br> <p>You will find the most convinient priced hotels here!</p>";
-          document.getElementById("outputStr").style.backgroundImage = "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')";
-    		}
+          var display = "<h1>Restaurants</h1><br> <p>You will find the most convinient priced hotels here!</p>";
+          // $('#image').css("background-image", "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')");
+          // document.getElementById("image").style.backgroundImage = "url('http://www.simplecookingclub.com/wp-content/uploads/2016/08/Veggie-Lasagna.jpg')";
+          
+          document.getElementById("image").style.backgroundImage = "url('http://everything-pr.com/wp-content/uploads/2015/08/Restaurant.jpg')";
+       
+                     // document.getElementById("image").style.maxWidth = "100%";
+      
+        }
     		else if(output == "movie")
     		{
-    			var display = "<h1>Movies</h1><br> <p>Find amazing place to watch your favourite movies with loved ones!</p>";
-          document.getElementById("outputStr").style.backgroundImage = "url('https://pmcdeadline2.files.wordpress.com/2017/08/amc-entertainment-theater.jpg?w=446&h=299&crop=1')";
+          var display = "<h1>Movies</h1><br> <p>Find amazing place to watch your favourite movies with loved ones!</p>";
+          //https://pmcdeadline2.files.wordpress.com/2017/08/amc-entertainment-theater.jpg?w=446&h=299&crop=1
+
+          
+          document.getElementById("image").style.backgroundImage = "url('http://nebula.wsimg.com/9db3d866ee502de656487d012cc67d7a?AccessKeyId=1D460FC576A381A2893F&disposition=0&alloworigin=1')";
     		}
     		else if(output == "shop")
     		{
+          //http://learnenglishteens.britishcouncil.org/sites/teens/files/rs5994_465129591-low.jpg
     			var display = "<h1>Shopping</h1><br> <p>Get a great discounts and your favourite shopping destinations!</p>";
-          document.getElementById("outputStr").style.backgroundImage = "url('http://learnenglishteens.britishcouncil.org/sites/teens/files/rs5994_465129591-low.jpg')";
+          document.getElementById("image").style.backgroundImage = "url('https://www.mallofamerica.com/sites/default/files/2017-11/shopping-hero-first_card_1.jpg')";
     		}
     		document.getElementById("outputStr").innerHTML =display;
     	}
     </script>
 </head>
-<body>
-  <!--<header class="site-header cf">-->
-  <!--    <div class="container">-->
-  <!--      <div class="site-logo"><h1>Salahe</h1></div>-->
-  <!--      <nav class="site-nav">-->
-  <!--        <ul id="std-menu">-->
-  <!--          <li><a class="active" href="">Home</a></li>-->
-  <!--          <li><a href="">Signin</a></li>-->
-  <!--          <li><a href="">Signup</a></li>-->
-  <!--        </ul>-->
-  <!--        <a href="" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>-->
-  <!--      </nav>-->
-  <!--    </div> <!-- /container -->
-  <!--  </header>-->
+<body id="image">
+
   <nav class="navbar navbar-default">
     <div class="container">
-    <!--<div class="navbar-header">-->
-    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-    <!--  <span class="sr-only">Toggle navigation</span>-->
-    <!--  <span class="icon-bar"></span>-->
-    <!--  <span class="icon-bar"></span>-->
-    <!--  <span class="icon-bar"></span>-->
-    <!--</button>-->
-    <!--<a class="navbar-brand" href="/">Salahe</a>-->
-    <!--</div>-->
+
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="/postlogin">Salahe</a></li>
@@ -428,12 +453,44 @@
 	    </main>
 
    <div class="content"> 
-	  <aside class="sidebar">
+	  <aside class="sidebar" style="margin-right: 100px">
       <div class="window">
-         <h2>About us...</h2>
-         <p>Salahe brings you your favourite places to you.<br>You will get the best user experience.</p>
-        
+         <!-- <h2>About us...</h2>
+         <p>Salahe brings you your favourite places to you.<br>You will get the best user experience.</p> -->
+              <!-- 
+
+TABS starting
+       -->
+       <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button" onclick="openCity('London')">About us</button>
+        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Reviews about Salahe</button>
+        <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Upcoming Features</button>
       </div>
+       <div id="London" class="city">
+        <h2>About us...</h2>
+        <p>Salahe brings you your favourite places to you.<br>You will get the best user experience.</p>
+      </div>
+      
+      <div id="Paris" class="city" style="display:none">
+        <h2>Reviews</h2>
+        <p>One stop solution for your searches and best recommendations</p>
+        <p>-Times Now</p> 
+      </div>
+      
+      <div id="Tokyo" class="city" style="display:none">
+        <h2>Upcoming Features</h2>
+        <ul>
+          <li>Places to visit</li>
+          <li>Real time recommendations</li>
+        </ul>
+      </div>
+<!-- TABS ENging -->
+      </div>
+      
+
+
+
+
       
       <div class="window">
         <form class="form" action="">
