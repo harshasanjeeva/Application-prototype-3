@@ -17,23 +17,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-
-  $( function() {
-      /* global $ */
-    $( "#draggable" ).draggable();
-    $( "#droppable" ).droppable({
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-          .html( "Dropped!" );
-          document.getElementById("regbutn").style.visibility = "visible"
-          document.getElementById("draggable").style.visibility = "hidden"
-          document.getElementById("droppable").style.visibility = "hidden"
-      }
-    });
-  } );
-
+  
   </script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,7 +32,7 @@
         
   
         
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             /* global $ */
             $( function() {
                 $("#dob").datepicker();
@@ -113,7 +97,7 @@
                 }
                 return bool;
             }
-        </script>
+        </script> -->
     </head>
     
     <body>
@@ -133,54 +117,33 @@
                         <li><a href="/login">Salahe</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
+                            <li><a href="/profile">My Profile</a></li>
+                            <li><a href="/feedback">Feedback</a></li>
+                            <li><a href="/login">Log Out</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="row">
-            <h1 style="text-align: center">Register</h1>
+            <h1 style="text-align: center">User Details</h1>
             <div style="width: 30%; margin: 25px auto;">
-                <form action="/register" method="post" onsubmit= "return validate()">
+                <form>
                     <div class="form-group">
-                        <input class="form-control" id="username" type="text" name="username" placeholder="username" onfocus="uname()">
-                        <label for="username" id ="usernameLbl" style="visibility:hidden">
-                            Username is not valid. Only characters A-Z, a-z and '-' are  acceptable
-                        </label>
+                        <label for="username">Username: </label>
+                        <span id="username"></span>                        
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="email" type="text" name="email" placeholder="email" onfocus="email()">
-                        <label for="email" id ="emailLbl" style="visibility:hidden">
-                            Email is not valid. Email should be of the format xxxx@xxxx.xxx
-                        </label>
+                        <label for="email">Email: </label>
+                        <span id="email"></span>                            
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="phone" type="text" name="phone" placeholder="phone" onfocus="phone()">
-                        <label for="phone" id ="phoneLbl" style="visibility:hidden">
-                            Phone number is not valid. Should be of the format (999) 999-9999
-                        </label>
+                        <label for="phone">Phone: </label>
+                        <span id="phone"></span>                            
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="dob" type="text" name="dob" placeholder="Date of Birth">
-                        <label for="dob" id ="dobLbl" style="visibility:hidden">
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" id="password" type="password" name="password" placeholder="password" onfocus="pwd()">
-                        <label for="password" id ="passwordLbl" style="visibility:hidden">
-                            Password is not valid. It should contain atleast one number and one special character
-                        </label>
-                    </div>
-                    <div id="draggable" class="bgimg" >
-                    </div>
- 
-                    <div id="droppable" class="ui-widget-header">
-                      <p>Drop the image here to Register</p>
-                    </div>
-                    <div class="form-group">
-                        <button id="regbutn" class="btn btn-lg btn-primary btn-block" style="visibility:hidden">Register</button>
-                    </div>
+                        <label for="dob">Date of Birth: </label>
+                        <span id="dob"></span>                            
+                    </div>                    
                 </form>
             </div>
         </div>

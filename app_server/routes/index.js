@@ -34,7 +34,9 @@ router.post('/menu', ctrlMain.post_menu);
 
 router.get('/feedback', ctrlMain.get_feedback);
 
-router.get('/feedback', ctrlMain.feedback);
+//router.get('/feedback', ctrlMain.feedback);
+
+router.get('/profile', ctrlMain.get_myprofile);
 
 
 module.exports = router;

@@ -1,3 +1,4 @@
+var User = require("../../dbm"); 
 var lineReader = require('line-reader');
 //var popup = require('popups');
 /**
@@ -7,7 +8,7 @@ var lineReader = require('line-reader');
  */
 function sendPage(fileName, result)
 {
-    var html = '';
+    var html = '';    
     
     // Read the file one line at a time.
     lineReader.eachLine(fileName,
@@ -116,14 +117,36 @@ module.exports.post_login = function(request, result)
     console.log("request--->",request)
     console.log("request--->",request.body.username)
     
+    //var db = request.db;
+    //var collection = db.get('usercollection');
+
+    //collection.find({"username":{$exists:true}})
     var username = request.body.username;
     var password = request.body.password;
-    if (username == "ronmak" && password == "Ronmak123"){
-        sendPage('index.html', result);
-    }
-    else{
-        sendPage('login.html', result);
-    }
+
+    User.findOne({username:username,password:password}, function(err,user){
+        if(err) {
+            console.log(err);
+            return result.status(500).send();
+        }
+        if(!user) {
+            sendPage('login.html', result);
+        } else if (user){
+            //console.log(result.user.username);
+            // var u = .username;
+            // sendPage('index.html', {uname:u});
+            //sendPage('index.html', result);
+            result.render('index.html');
+        }
+
+        
+    });
+    // if (username == "ronmak" && password == "Ronmak123"){
+    //     sendPage('index.html', result);
+    // }
+    // else{
+    //     sendPage('login.html', result);
+    // }
 };
 
 module.exports.register = function(request, result) 
@@ -133,12 +156,57 @@ module.exports.register = function(request, result)
 
 module.exports.post_register = function(request, result) 
 {
-    sendPage('login.html', result);
+    //var db = request.db;
+    var username = request.body.username;
+    var email = request.body.email;
+    var phone = request.body.phone;
+    var password = request.body.password;
+    var dob = request.body.dob;
+
+    var newUser = new User({username:username,email:email,phone:phone,password:password,dob:dob});
+    // newUser.username = username;
+    // newUser.email = email;
+    // newUser.phone = phone;
+    // newUser.password = password;
+    // newUser.dob = dob;
+
+    newUser.save(function(err,savedUser) {
+        if(err) {
+            result.send("Insert Failed");
+        } else {
+            sendPage('login.html', result);
+        }
+    })
+    
+    // var collection = db.get('usercollection');
+
+    // collection.insert( {"uname":username,
+    //                     "email":email,
+    //                 "phone":phone,
+    //                     "pwd":password,
+    //                     "dob":dob},
+    //                     function (err,doc)
+    //                     {
+    //                         if(err) {
+    //                             result.send("Insert Failed");
+    //                         } else {
+    //                             sendPage('login.html', result);
+    //                         }
+    //                     });
+    
 };
 
 module.exports.get_feedback = function(request, result) 
 {
     sendPage('feedback.html', result);
+};
+
+module.exports.get_myprofile = function(request, result) 
+{
+    User.findOne({username:username}, function(err,user){
+        
+    });
+    sendPage('profile.html', result);
 };
 
 module.exports.get_textfields = function(request, result) 
