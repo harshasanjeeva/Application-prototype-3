@@ -38,5 +38,6 @@ router.get('/feedback', ctrlMain.get_feedback);
 
 router.get('/profile', ctrlMain.get_myprofile);
 
+router.post('/updateprofile/:username', ctrlMain.post_updateprofile);
 
 module.exports = router;

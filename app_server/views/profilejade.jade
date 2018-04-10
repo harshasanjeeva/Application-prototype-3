@@ -1,0 +1,20 @@
+html    
+    head    
+        title
+    body
+        p #{username}
+        p #{phone}
+        p #{email}
+        p #{dob}
+
+        form(action='/updateprofile', method='post')
+            
+            p #{username}
+
+            input(type="text", name="name", value="#{username}")
+            input(type="text", name="email", value="#{email}")
+            input(type="text", name="phone", value="#{phone}")
+            input(type="text", name="dob", value="#{dob}")
+            
+            input.btn.btn-primary(type='submit', value='post')
+

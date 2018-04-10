@@ -132,11 +132,21 @@ module.exports.post_login = function(request, result)
         if(!user) {
             sendPage('login.html', result);
         } else if (user){
+            usernamejade = username;
+            emailjade = user.email;
+            phonejade = user.phone;
+            dobjade = user.dob;
+           console.log("here in login->",user)
+           
             //console.log(result.user.username);
             // var u = .username;
             // sendPage('index.html', {uname:u});
-            //sendPage('index.html', result);
-            result.render('index.html');
+           sendPage('index.html', result);
+            // result.render('index.html');
+//???????????????????????????????????????????????????????
+       
+
+
         }
 
         
@@ -153,6 +163,12 @@ module.exports.register = function(request, result)
 {
     sendPage('register.html', result);
 };
+
+module.exports.post_updateprofile = function(request,result){
+    //console.log("in update profile",request.params)
+    console.log("in update profile",request.body)
+}
+
 
 module.exports.post_register = function(request, result) 
 {
@@ -203,10 +219,13 @@ module.exports.get_feedback = function(request, result)
 
 module.exports.get_myprofile = function(request, result) 
 {
-    User.findOne({username:username}, function(err,user){
+    // User.findOne({username:username}, function(err,user){
         
-    });
-    sendPage('profile.html', result);
+    // });
+
+
+    result.render('profilejade',{"username":usernamejade, "email":  emailjade, "phone": phonejade, "dob": dobjade});
+    // sendPage('profile.html', result);
 };
 
 module.exports.get_textfields = function(request, result) 

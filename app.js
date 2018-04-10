@@ -14,7 +14,9 @@ mongoose.connect('mongodb://localhost:27017/nodetest1');
 //View engine setup
 app.set('views', path.join(__dirname, 'app_server','views'));
 app.set('view engine', 'html');
-// app.engine('html',require('ejs').renderFile);
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'jade');
+//app.engine('jade',require('ejs').renderFile);
 //app.set('view engine','ejs');
 
 
